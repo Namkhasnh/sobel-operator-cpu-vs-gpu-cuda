@@ -285,8 +285,14 @@ __global__ void sobel_kernel_gpu(
 ---
 
 ## 📚 Tài liệu tham khảo
-
-- [CUDA Programming Guide — NVIDIA](https://docs.nvidia.com/cuda/cuda-c-programming-guide/)
-- [OpenCV Documentation](https://docs.opencv.org/)
-- Sobel, I. (1968). *An Isotropic 3x3 Image Gradient Operator*
-- [CUDA Constant Memory](https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/index.html#constant-memory)
+ 
+[1] M. Rakhimov, M. Ochilov, S. Javliev, and R. Nasimov, "CUDA Block Size Optimization for Gaussian and Sobel Filters: Benchmarking Against CPU Implementations," in *Proceedings of the International Conference on Future Networks and Distributed Systems (ICFNDS '25)*, Dubai, United Arab Emirates, Dec. 2025. doi: [10.1145/3789692.3789772](https://doi.org/10.1145/3789692.3789772)
+ 
+[2] J. J. Tse, "Image Processing with CUDA," M.S. thesis, School of Comput. Sci., Univ. of Nevada, Las Vegas, NV, USA, Aug. 2012. doi: [10.34917/4332680](https://doi.org/10.34917/4332680)
+ 
+[3] M. K. Hossain, M. A. Ashique, M. A. Ibtehaz, and J. Uddin, "Parallel Edge Detection using Sobel Algorithm with Contract-time Anytime Algorithm in CUDA," Dept. Comput. Sci. and Eng., BRAC University, Dhaka, Bangladesh.
+ 
+[4] K. A. Spiridonov, I. S. Stulov, and I. A. Ferapontov, "Implementation and comparison of the Sobel operator on CPU and GPU using CUDA," *International Journal of Humanities and Natural Sciences*, vol. 10-5, no. 97, pp. 66–69, 2024. doi: [10.24412/2500-1000-2024-10-5-66-69](https://doi.org/10.24412/2500-1000-2024-10-5-66-69)
+ 
+[5] A. Smailović, "Time performance comparison between GPU and CPU computing by implementing an edge-detection algorithm using Sobel filter," *Bulletin of the Transilvania University of Braşov, Series I: Engineering Sciences*, vol. 12 (61), no. 1, 2019. doi: [10.31926/but.ens.2019.12.61.7](https://doi.org/10.31926/but.ens.2019.12.61.7)
+ 
