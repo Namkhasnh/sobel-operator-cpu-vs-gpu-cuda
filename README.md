@@ -162,7 +162,7 @@ g++ sobel_opencv.cpp -o sobel_opencv `pkg-config --cflags --libs opencv4` -O2
 **Output mẫu:**
 ```
 Loaded image: 1920 x 1080, channels = 3
-CPU Sobel time: 245.83 ms
+CPU Sobel time: 255.258 ms
 Saved output to: output_cpu.png
 ```
 
@@ -183,8 +183,8 @@ nvcc sobel_cuda.cu -o sobel_cuda `pkg-config --cflags --libs opencv4` -O2
 
 **Output mẫu:**
 ```
-Image size: 1920 x 1080, channels = 3
-GPU Sobel execution time: 3.21 ms
+Image size: 3840 x 2160, channels = 3
+GPU Sobel execution time: 12.1445 ms
 Output saved to: output_gpu.png
 ```
 
@@ -196,18 +196,10 @@ Kết quả đo trên **Google Colab T4 GPU** với ảnh `input2.jpg`:
 
 | Phiên bản | Thời gian xử lý | Ghi chú |
 |-----------|----------------|---------|
-| CPU (`sobel_opencv`) | ~245 ms | C++, O2, 1 lõi CPU |
-| GPU (`sobel_cuda`) | ~3 ms | CUDA, block 8×8, T4 GPU |
-| **Speedup** | **~80×** | GPU nhanh hơn ~80 lần |
+| CPU (`sobel_opencv`) | ~255 ms | C++, O2, 1 lõi CPU |
+| GPU (`sobel_cuda`) | ~12 ms | CUDA, block 8×8, T4 GPU |
+| **Speedup** | **~80×** | GPU nhanh hơn ~21 lần |
 
-### Lý giải speedup
-
-| Yếu tố | CPU | GPU |
-|--------|-----|-----|
-| Số luồng xử lý | 1 | 2.560+ (CUDA cores T4) |
-| Phương thức | Tuần tự pixel | Song song toàn bộ ảnh |
-| Bộ nhớ kernel | Cache L1/L2 | Constant memory (broadcast) |
-| Thời gian tính | O(W×H) thực sự tuần tự | O(1) về mặt lý thuyết |
 
 > **Lưu ý:** Thời gian GPU bao gồm `cudaMemcpy` (host → device → host). Nếu tính riêng kernel execution, tốc độ còn cao hơn nữa.
 
